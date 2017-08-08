@@ -2,8 +2,9 @@ import React from 'react';
 import { connect }  from 'react-redux';
 import AddFood from './AddFood.jsx';
 import Food from '../components/Food.jsx';
+import { removeFoodEntry } from '../actions'
 
-const Meal = ({ foodEntries }) => (
+const Meal = ({ foodEntries, onFoodRemoveClick }) => (
     <div>
         <AddFood />
         <ul>
@@ -11,6 +12,7 @@ const Meal = ({ foodEntries }) => (
                 foodEntries.map(foodEntry => (
                     <Food
                         key={foodEntry.id}
+                        onRemoveClick={() => onFoodRemoveClick(foodEntry.id)}
                         {...foodEntry}
                     />
                 ))
@@ -27,7 +29,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        
+        onFoodRemoveClick: id => {
+            dispatch(removeFoodEntry(id))
+        }
     };
 };
 

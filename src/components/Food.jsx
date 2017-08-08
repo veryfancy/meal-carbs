@@ -1,8 +1,12 @@
 import React from 'react';
 
-const Food = ({ text }) => (
+const Food = ({ onRemoveClick, text }) => (
     <li>
         {text}
+
+        <button onClick={onRemoveClick}>
+            Remove
+        </button>
     </li>
 );
 

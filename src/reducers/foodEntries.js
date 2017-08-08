@@ -8,6 +8,8 @@ const foodEntries = (state = [], action) => {
                     text: action.payload.text
                 }
             ];
+        case 'REMOVE_FOOD_ENTRY':
+            return state.filter(x => x.id !== action.payload);
         default:
             return state;
     }

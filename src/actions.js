@@ -11,7 +11,7 @@ export const addFoodEntry = text => {
     };
 };
 
-export const removeFood = id => {
+export const removeFoodEntry = id => {
     return {
         type: 'REMOVE_FOOD_ENTRY',
         payload: id
